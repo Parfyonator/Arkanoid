@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugMT|Win32">
+      <Configuration>DebugMT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseMT|Win32">
+      <Configuration>ReleaseMT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8EE272DF-C9FC-4CE3-952F-4C6FF4605BB3}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMT|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMT|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugMT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>14.0.25123.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>Debug\</OutDir>
+    <IntDir>Debug\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>Release\</OutDir>
+    <IntDir>Release\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMT|Win32'">
+    <OutDir>DebugMT\</OutDir>
+    <IntDir>DebugMT\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMT|Win32'">
+    <OutDir>ReleaseMT\</OutDir>
+    <IntDir>ReleaseMT\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>prcore_debug.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>prcore.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugMT|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>prcore_mtdebug.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMT|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>prcore_mt.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\extlib\jasper\jas_debug.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jas_getopt.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jas_image.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jas_init.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jas_malloc.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jas_seq.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jas_stream.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jas_string.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jas_tvp.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jas_version.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jp2_cod.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jp2_dec.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jp2_enc.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_bs.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_cs.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_dec.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_enc.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_math.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_mct.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_mqcod.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_mqdec.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_mqenc.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_qmfb.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_t1cod.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_t1dec.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_t1enc.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_t2cod.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_t2dec.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_t2enc.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_tagtree.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_tsfb.c" />
+    <ClCompile Include="..\..\src\extlib\jasper\jpc_util.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcapimin.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcapistd.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jccoefct.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jccolor.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcdctmgr.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jchuff.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcinit.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcmainct.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcmarker.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcmaster.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcomapi.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcparam.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcphuff.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcprepct.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jcsample.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jctrans.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdapimin.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdapistd.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdatadst.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdatasrc.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdcoefct.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdcolor.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jddctmgr.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdhuff.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdinput.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdmainct.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdmarker.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdmaster.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdmerge.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdphuff.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdpostct.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdsample.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jdtrans.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jerror.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jfdctflt.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jfdctfst.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jfdctint.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jidctflt.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jidctfst.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jidctint.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jidctred.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jmemmgr.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jmemnobs.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jquant1.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jquant2.c" />
+    <ClCompile Include="..\..\src\extlib\jpglib\jutils.c" />
+    <ClCompile Include="..\..\src\extlib\openexr\Half\half.cpp" />
+    <ClCompile Include="..\..\src\extlib\pnglib\png.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngerror.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pnggccrd.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngget.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngmem.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngpread.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngread.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngrio.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngrtran.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngrutil.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngset.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngtrans.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngvcrd.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngwio.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngwrite.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngwtran.c" />
+    <ClCompile Include="..\..\src\extlib\pnglib\pngwutil.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\adler32.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\compress.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\crc32.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\deflate.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\gzio.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\infblock.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\infcodes.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\inffast.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\inflate.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\inftrees.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\infutil.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\trees.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\uncompr.c" />
+    <ClCompile Include="..\..\src\extlib\zlib\zutil.c" />
+    <ClCompile Include="..\..\src\prcore\alphablend.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmap.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmapcodec_bmp.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmapcodec_dds.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmapcodec_gif.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmapcodec_iff.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmapcodec_jp2.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmapcodec_jpg.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmapcodec_pcx.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmapcodec_png.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmapcodec_ras.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmapcodec_rgb.cpp" />
+    <ClCompile Include="..\..\src\prcore\bitmapcodec_tga.cpp" />
+    <ClCompile Include="..\..\src\prcore\blitter_float.cpp" />
+    <ClCompile Include="..\..\src\prcore\blitter_integer.cpp" />
+    <ClCompile Include="..\..\src\prcore\cpu.cpp" />
+    <ClCompile Include="..\..\src\prcore\filecodec_zip.cpp" />
+    <ClCompile Include="..\..\src\prcore\filename.cpp" />
+    <ClCompile Include="..\..\src\prcore\filestream.cpp" />
+    <ClCompile Include="..\..\src\prcore\inputdevice.cpp" />
+    <ClCompile Include="..\..\src\prcore\memorystream.cpp" />
+    <ClCompile Include="..\..\src\prcore\mipmap.cpp" />
+    <ClCompile Include="..\..\src\prcore\quantize.cpp" />
+    <ClCompile Include="..\..\src\prcore\rect.cpp" />
+    <ClCompile Include="..\..\src\prcore\surface.cpp" />
+    <ClCompile Include="..\..\src\prcore\version.cpp" />
+    <ClCompile Include="..\..\src\prcore\win32\exception.cpp" />
+    <ClCompile Include="..\..\src\prcore\win32\filecodec_file.cpp" />
+    <ClCompile Include="..\..\src\prcore\win32\framebuffer.cpp" />
+    <ClCompile Include="..\..\src\prcore\win32\joystick.cpp" />
+    <ClCompile Include="..\..\src\prcore\win32\keyboard.cpp" />
+    <ClCompile Include="..\..\src\prcore\win32\mouse.cpp" />
+    <ClCompile Include="..\..\src\prcore\win32\opengl.cpp" />
+    <ClCompile Include="..\..\src\prcore\win32\plugin.cpp" />
+    <ClCompile Include="..\..\src\prcore\win32\timer.cpp" />
+    <ClCompile Include="..\..\src\prcore\win32\windowbase.cpp" />
+    <ClCompile Include="..\..\src\prcore\zlib.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\prcore\alphablend.hpp" />
+    <ClInclude Include="..\..\include\prcore\array.hpp" />
+    <ClInclude Include="..\..\include\prcore\bitmap.hpp" />
+    <ClInclude Include="..\..\include\prcore\chartype.hpp" />
+    <ClInclude Include="..\..\include\prcore\codecmanager.hpp" />
+    <ClInclude Include="..\..\include\prcore\color32.hpp" />
+    <ClInclude Include="..\..\include\prcore\configure.hpp" />
+    <ClInclude Include="..\..\include\prcore\cpu.hpp" />
+    <ClInclude Include="..\..\include\prcore\endian.hpp" />
+    <ClInclude Include="..\..\include\prcore\exception.hpp" />
+    <ClInclude Include="..\..\include\prcore\filename.hpp" />
+    <ClInclude Include="..\..\include\prcore\filestream.hpp" />
+    <ClInclude Include="..\..\include\prcore\float754.hpp" />
+    <ClInclude Include="..\..\include\prcore\framebuffer.hpp" />
+    <ClInclude Include="..\..\include\prcore\inputdevice.hpp" />
+    <ClInclude Include="..\..\include\prcore\integer.hpp" />
+    <ClInclude Include="..\..\include\prcore\joystick.hpp" />
+    <ClInclude Include="..\..\include\prcore\keyboard.hpp" />
+    <ClInclude Include="..\..\include\prcore\linkedlist.hpp" />
+    <ClInclude Include="..\..\include\prcore\memorystream.hpp" />
+    <ClInclude Include="..\..\include\prcore\mipmap.hpp" />
+    <ClInclude Include="..\..\include\prcore\mouse.hpp" />
+    <ClInclude Include="..\..\include\prcore\opengl.hpp" />
+    <ClInclude Include="..\..\include\prcore\pixelformat.hpp" />
+    <ClInclude Include="..\..\include\prcore\plugin.hpp" />
+    <ClInclude Include="..\..\include\prcore\prcore.hpp" />
+    <ClInclude Include="..\..\include\prcore\rect.hpp" />
+    <ClInclude Include="..\..\include\prcore\refcount.hpp" />
+    <ClInclude Include="..\..\include\prcore\stream.hpp" />
+    <ClInclude Include="..\..\include\prcore\string.hpp" />
+    <ClInclude Include="..\..\include\prcore\surface.hpp" />
+    <ClInclude Include="..\..\include\prcore\timer.hpp" />
+    <ClInclude Include="..\..\include\prcore\version.hpp" />
+    <ClInclude Include="..\..\include\prcore\windowbase.hpp" />
+    <ClInclude Include="..\..\include\prcore\windows.hpp" />
+    <ClInclude Include="..\..\include\prcore\zlib.hpp" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jasper.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_debug.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_fix.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_getopt.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_image.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_init.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_malloc.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_math.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_seq.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_stream.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_string.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_tvp.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_types.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\jas_version.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jasper\prjasper.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jp2_cod.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jp2_dec.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_bs.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_cod.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_cs.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_dec.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_enc.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_fix.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_flt.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_math.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_mct.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_mqcod.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_mqdec.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_mqenc.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_qmfb.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_t1cod.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_t1dec.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_t1enc.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_t2cod.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_t2dec.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_t2enc.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_tagtree.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_tsfb.h" />
+    <ClInclude Include="..\..\src\extlib\jasper\jpc_util.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\cderror.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\cdjpeg.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\jchuff.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\jconfig.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\jdct.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\jdhuff.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\jerror.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\jinclude.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\jmemsys.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\jmorecfg.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\jpegint.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\jpeglib.h" />
+    <ClInclude Include="..\..\src\extlib\jpglib\jversion.h" />
+    <ClInclude Include="..\..\src\extlib\openexr\Half\half.h" />
+    <ClInclude Include="..\..\src\extlib\openexr\Half\halfFunction.h" />
+    <ClInclude Include="..\..\src\extlib\openexr\Half\halfLimits.h" />
+    <ClInclude Include="..\..\src\extlib\pnglib\png.h" />
+    <ClInclude Include="..\..\src\extlib\pnglib\pngasmrd.h" />
+    <ClInclude Include="..\..\src\extlib\pnglib\pngconf.h" />
+    <ClInclude Include="..\..\src\extlib\zlib\deflate.h" />
+    <ClInclude Include="..\..\src\extlib\zlib\infblock.h" />
+    <ClInclude Include="..\..\src\extlib\zlib\infcodes.h" />
+    <ClInclude Include="..\..\src\extlib\zlib\inffast.h" />
+    <ClInclude Include="..\..\src\extlib\zlib\inffixed.h" />
+    <ClInclude Include="..\..\src\extlib\zlib\inftrees.h" />
+    <ClInclude Include="..\..\src\extlib\zlib\infutil.h" />
+    <ClInclude Include="..\..\src\extlib\zlib\trees.h" />
+    <ClInclude Include="..\..\src\extlib\zlib\zconf.h" />
+    <ClInclude Include="..\..\src\extlib\zlib\zlib.h" />
+    <ClInclude Include="..\..\src\extlib\zlib\zutil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\src\prcore\x86\_alphablend.asm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='DebugMT|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='DebugMT|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseMT|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseMT|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\src\prcore\x86\_blitter.asm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='DebugMT|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='DebugMT|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseMT|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseMT|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\src\prcore\x86\_cpu.asm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='DebugMT|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='DebugMT|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseMT|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseMT|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">nasmw.exe -f win32 "%(FullPath)" -o $(OutDir)%(Filename).obj
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)%(Filename).obj;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,17 @@
+-------------------------------------------------------
+  newline tool for the UNIX version of Prophecy SDK
+  (C) 2001 - Edmond Cote (edmond.cote@twilight3d.com)
+-------------------------------------------------------
+
+Little program to add newlines at the end of each file, since gcc 2.96 
+and above will give out warnings when a newline is not found at the end of a 
+file. Occassionally, gcc will also crash when too many of those errors are 
+found.
+
+
+-------------------
+  usage examples:
+-------------------
+
+newline *
+newline *.c 

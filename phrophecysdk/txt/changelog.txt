@@ -1,0 +1,809 @@
+
+===============================
+    Prophecy SDK change log
+===============================
+
+
+--------------------------
+  June/01/2004 build 350
+--------------------------
+
+  ADDED:
+
+  - child window support into prcore::WindowBase and prcore::FrameBuffer
+
+
+------------------------------
+  February/28/2004 build 344
+------------------------------
+
+  ADDED:
+
+  - plugin.cpp for the unix implementation
+
+
+------------------------------
+  February/11/2004 build 343
+------------------------------
+
+  FIXED:
+
+  - fixed blitter_integer.cpp to compile correctly with CodeWarrior on MacOS X.
+  - fixed a bug in prcore::toupper()
+
+
+-----------------------------
+  January/20/2004 build 342
+-----------------------------
+
+  CHANGED:
+
+  - unix implementation supports automatic "CWD" detection for FileStream class,
+    which allows the SDK examples to work when launched from X11 Window Manager such
+    as the GNOME or the KDE. In practise this means that the actual filename is compiled
+    from three distinct components: exepath + basepath + userfile ; only relative paths
+    are concenated - absolute path in either userfile or basepath override the currently
+    detected CWD (exepath).
+
+    This emulates the behaviour of Microsoft Windows(R), where CWD is set to the same folder
+    as the launched application.
+
+    NOTE: added Feb/11/2004:
+    
+    There is no portable way to do this without using (argc,argv) the current Linux implementation
+    uses proc/PID/exe information to determine the application name. There is function in OSX to
+    query for the information but a fully portable mechanism requires (argc,argv) arguments to the
+    application to be visible to the filesystem class. So treat this is Linux/Windows specific
+    "extension" to the SDK. The Prophecy SDK 2.0 implements the fully portable mechanism as standard
+    on ALL supported platforms, more on this when the PRSDK 2 is released.
+
+
+-----------------------------
+  January/13/2004 build 341
+-----------------------------
+
+  CHANGED:
+
+  - improved unix implementation (framebuffer works with X11 extensions, etc.)
+
+
+-----------------------------
+  January/04/2004 build 340
+-----------------------------
+
+  FIXED:
+
+  - a bug in String2<> template
+  - namespace issues in .cpp files for OSX version of the library
+  - UNIX compiling issues
+
+  CHANGED:
+
+  - added Mac OSX support for the library
+
+
+-----------------------------
+  October/10/2003 build 336
+-----------------------------
+
+  FIXED:
+
+  - src/prcore/memorystream.cpp fixed overwrite on ::Write() method ; allocates memory only on overflow case
+
+  CHANGED:
+
+  - "bin/win32vc6/" compiler folder renamed to "bin/visual studio 6.0/"
+  - "bin/win32vc7/" compiler folder renamed to "bin/visual studio .net 2002/"
+  - "bin/visual studio .net 2003/" compiler folder added
+  - include/primport/klx.hpp changed the KLX_CHUNK_MAIN enumeration
+  - src/primport/klx.cpp added klx fileformat detection, added shadow receive/cast flags to objects
+
+
+-------------------------------
+  September/20/2003 build 335
+-------------------------------
+
+  FIXED:
+
+  - vc7 solution for prcore.lib can now use nasmw.exe with folder names containing space
+  - primport.lib Quake II model importer enumeration changed to more generic one
+  - src/prcore/bitmapcodec_png.cpp now compiles with Visual C++ .NET 2003 (ambiguity with function names fixed)
+  - src/prcore/alphablend.cpp now compiles with Intel C++ 7.1 (extern "C" declarations fixed)
+
+  CHANGED:
+
+  - added read-only reference constructor to prcore::Array
+  - prcore::MemoryStream uses prcore::Array internally
+  - prcore::InputBase system supports mousewheel, changes to Joystick,Keyboard and Mouse classes
+
+
+----------------------------
+  August/27/2003 build 334
+----------------------------
+
+  CHANGED:
+
+  - prmath::matrix4x4<T>::RotateXYZ() parameter order from yaw,pitch,roll to pitch,yaw,roll
+
+  FIXED:
+
+  - prmath::box3<T>::UpdateBox() correctly updates min and max members
+
+
+--------------------------
+  July/02/2003 build 333
+--------------------------
+
+  ADDED:
+
+  - prmath::Matrix*<>() template functions to include/prmath/matrix4x4.hpp
+  - option to pass pixelformat to prcore::Bitmap object when constructing from file or stream
+    -> convenient for initializing bitmap objects
+
+  FIXED:
+
+  - GET_WHEEL_DELTA_WPARAM macro in src/prcore/win32/windowbase.cpp
+
+  CHANGED:
+
+  - example/ folder in separate distribution to trim download size
+
+
+--------------------------
+  June/30/2003 build 332
+--------------------------
+
+  ADDED:
+
+  - new prmath typedefs: (primarily aimed for HLSL / Cg programmers)
+    - float2,float3,float4,float4x4
+  - point to line or line-segment distance methods to prmath::Line template class
+
+  FIXED:
+
+  - GET_XBUTTON_WPARAM macro in src/prcore/win32/windowbase.cpp
+
+
+--------------------------
+  June/09/2003 build 331
+--------------------------
+
+  FIXED:
+
+  - prcore::Surface::SaveImage() error message
+  - compiler warning with g++ 3.3 on src/prcore/bitmapcodec_gif.cpp
+  - compiler warning with g++ 3.3 on src/prcore/bitmapcodec_dds.cpp
+  - src/prcore/win32/windowbase.cpp for WM_XBUTTON,XMOUSE1,etc. defines for compiler
+    installations without "Platform SDK" version of <winuser.h> header
+
+
+--------------------------
+  May/13/2003 build 330
+--------------------------
+
+  ADDED:
+
+  - WindowBase::EventMouseButton() support for double-click,mouse wheel,extra buttons
+  - example/desktop/mousetest/ to test the mouse window events
+
+  CHANGED:
+
+  - WindowBase::EventMouseButton() parameters changed, if mouse events don't come through in user
+    application, check the callback parameters (so that the correct virtual method is called ;)
+
+  NOTES:
+
+  - the new MOUSE_XBUTTON1, MOUSE_XBUTTON2 enumerations only apply to window events for now,
+    the Mouse input devide will be upgraded to new status in the future.
+
+
+---------------------------
+  April/15/2003 build 329
+---------------------------
+
+  FIXED:
+
+  - filecodec_zip.cpp to work with big-endian architechtures
+
+  CHANGED:
+
+  - WindowBase method names:
+    ::IsOpen()    -> ::IsWindowOpen()
+    ::IsBind()    -> ::IsWindowBind()
+    ::GetStyle()  -> ::GetWindowStyle()
+    ::GetHandle() -> ::GetWindowHandle()
+    ::GetAspect() -> ::GetWindowAspect()
+    ::GetRect()   -> ::GetWindowRect()
+    - changed "const char*" in window name parameter to "const String&"
+  - renamed WinHandle to WindowHandle in <prcore/configure.hpp>
+  - added float64 typedef to <prcore/configure.hpp>
+
+  NOTES:
+
+  - improved unix newline tool:
+    - removes 0xd characters in unix (CRLF -> LF), this means nicer formatting for unix text editors
+    - modularized gccfix() and crfix() for easier maintenance
+    - recognizes folders and recurses into them (and does not try to "fix" a folder ;-)
+  - improved unix implementation (not yet 100% complete, but getting there..)
+
+
+---------------------------
+  March/28/2003 build 328
+---------------------------
+
+  FIXED:
+
+  - prcore::String2<>::operator << float ()
+
+  NOTES:
+
+  - improved UNIX makefile(s)
+  - improved UNIX configure.hpp support
+
+
+---------------------------
+  March/20/2003 build 327
+---------------------------
+
+  CHANGED:
+
+  - added prmath workspace to prophecy solution (windows specific: msvc++6,msvc++7)
+
+  FIXED:
+
+  - linking with correct debug libraries in example/console/ (windows specific)
+
+
+---------------------------
+  March/18/2003 build 326
+---------------------------
+
+  ADDED:
+
+  - gif decoder
+
+  FIXED:
+
+  - include/prcore/cpu.hpp to include <cstddef> for size_t type
+  - include/prcore/chartype.hpp to use ::towlower() instead of std::towlower()
+  - include/prcore/color32.hpp to initialize members in declaration order (silences a g++ 3.2.2 warning)
+  - src/prcore/unix/filecodec_file.cpp to support new FileIndex API
+  - example/console/indextest to work in UNIX platform
+
+  CHANGED:
+
+  - prcore::String2<> to be easier to work with unicode strings
+  - prcore::WindowBase::EventDropFile() to take "const String&" instead of "const char*" for filename
+  - renamed linux/ implementation (include,src,lib) to unix/
+
+  NOTES:
+
+  - improved UNIX implementation, FB/GL and makefile(s) still need some work
+
+
+---------------------------
+  March/09/2003 build 325
+---------------------------
+
+  ADDED:
+
+  - zlib entrypoints to prcore in the <prcore/zlib.hpp> header
+  - affine flag to prmath::Matrix4x4<>::Inverse() method
+
+  FIXED:
+
+  - a bug in recursive filecodec search
+
+  NOTES:
+
+  - cleaned up the pcx decoder
+
+
+------------------------------
+  February/22/2003 build 324
+------------------------------
+
+  - changed prcore::Surface::SaveImage() to use const String& as filename parameter
+  - changed prcore::Bitmap::LoadImage() to use const String& as filename parameter
+  - added "compression quality" parameter for prcore::Surface::SaveImage() and into the prcore::BitmapCodec
+  - changed <prcore/ieee754.hpp>, added prcore::powf(), prcore::sqrtf(), removed prcore::FloatToInt,
+    improved code comments, etc.
+  - added prcore::WindowBase::SetMainFrequency() and ::GetMainFrequency() methods
+  - rewrote PixelFormat to support floating-point pixelformats
+  - rewrote blitter.cpp to support floating-point pixelformats (now blitter_integer.cpp and blitter_float.cpp)
+  - added support for 16 bit floating-point values in <prcore/configure.hpp> using OpenEXR SDK
+  - added PreMult*() and PostMult*() methods to <prcore/matrix4x4.hpp>, allows more optimal code to be written
+  - changed <prcore/filename.hpp> function names to be more consistent, postfixes now: EXT,PATH,NOEXT,NOPATH
+  - changed <prcore/filename.hpp> to use prcore::String2<> as filename parameter(s),
+    allows to use faster prcore::String2<> interface for string processing
+
+  BACKWARD COMPATIBILITY RELATED CHANGES:
+
+  - PRCORE_EXCEPTION macro changed, new usage: PRCORE_EXCEPTION("message.");
+
+  - ARGB8888,RGB888,etc. macros deprecated and replaced by
+    PIXELFORMAT_ARGB8888,PIXELFORMAT_RGB888, etc.
+
+  - prcore::Surface::FlipYImage() renamed to ::FlipImageY()
+
+  - <prcore/window.hpp> renamed to <prcore/windowbase.hpp>
+  
+  - stricmp() and _stricmp() are no longer supported on cross-platform compilation,
+    and have been replaced by the prcore::StringCompare() template in <prcore/string.hpp>
+
+
+-----------------------------
+  January/15/2003 build 323
+-----------------------------
+
+  - added <prcore/chartype.hpp> header
+  - fixed <prcore/string.hpp> to use the new chartype.hpp header
+
+
+-----------------------------
+  January/14/2003 build 322
+-----------------------------
+
+  - fixed prcore::String2<>::operator ==
+  - fixed a bug in prcore::Array<>::SetSize(), when size remains same set the current index
+  - changed prcore::toupper(),::tolower() into template to support unicode aswell as ascii
+  - changed prcore::StringCompare() into template to support unicode aswell as ascii
+  - optimized prcore::String2 copy constructor, initializes the array directly
+  - upgraded Linux prcore::Timer implementation
+
+
+-----------------------------
+  January/13/2003 build 320
+-----------------------------
+
+  - added prcore::Timer::GetTick() method to get time in integer milliseconds
+  - added support for detection of MMX+ and 3DNow+ in cpu module
+  - added simd_memcpy() into cpu module, currently optimizes only for AMD Athlon/Duron
+  - fixed prcore::Exception() to use "const String&" as argument instead of "const char*"
+  - fixed return value for prcore::String2::MetaSubString() for correct "null string expression"
+
+
+-----------------------------
+  January/12/2003 build 319
+-----------------------------
+
+  - moved prcore::tolower() and prcore::toupper() to <prcore/string.hpp>
+  - removed prcore::LinkedList<>::operator [] as useless and dangerous resource/runtime hog
+  - changed prcore::RefCount::SetName() to virtual method
+  - changed primport::ImportKLX to use prcore::Array<> as container instead of prcore::LinkedList<>
+  - fixed a comment in <prcore/float754.hpp>,
+    prcore::randf() returns a random value between 0.0f and 1.0f (inclusive)
+  - fixed primport.lib settings for multi-threaded debug and release builds in windows vc7 solution
+  - fixed prcore::String2<>::SubString() to allocate space for trailing \0 character.
+
+
+-----------------------------
+  January/08/2003 build 318
+-----------------------------
+
+  - fixed a macro in <prcore/configure.hpp>
+  - added prcore::StringCompare(string,string,case_sensitive) function to <prcore/string.hpp>
+  - added -> operators for prcore::LinkedList<>::Iterator
+  - added WM_KEYDOWN support for prcore::Exception::DrawDialog(),
+    can now use esc,return,space to acknowledge exception
+
+
+-----------------------------
+  January/07/2003 build 317
+-----------------------------
+
+  - added linenr parameter to prcore::Exception
+  - added PRCORE_ASSERT_EXPRESSION macro to <prcore/exception.hpp>
+  - added exception when Bitmap::LoadImage() cannot find codec
+  - added exception when Surface::SaveImage() cannot find codec
+
+
+-----------------------------
+  January/03/2003 build 316
+-----------------------------
+
+  - fixed a bug in prcore::String2<>::SubString() method
+  - added prcore::Array<>::SetIndex() method
+
+
+------------------------------
+  December/27/2002 build 315
+------------------------------
+
+  - rewrote prcore::String to use expression templates ( _very_ fast string concenation with + operator )
+  - rewrote prcore::String to support different char types ( recommended: char,uchar16 )
+  - added unicode char type to <prcore/configure.hpp> ( uchar16 )
+
+
+------------------------------
+  December/21/2002 build 314
+------------------------------
+
+  - added ::Reserve() method to prcore::Array, syntatic sugar to do ::SetSize(),::ResetIndex()
+  - tweaked <prcore/array.hpp> and <prcore/linkedlist.hpp> to generate slightly better output
+  - fixed prcore::CreateMipLevel() to compile with VC6
+  - fixed prmath headers to use static_cast<T>() instead of (T) (ANSI C -style casting)
+  - canceled the callback semantic change on WindowBase from previous version, but left the
+    callback masking exposed to the client with methods: ::EnableEvent(), ::DisableEvent()
+
+
+------------------------------
+  December/14/2002 build 313
+------------------------------
+
+  - fixed a bug in WIN32 OpenGL implementation
+  - cleaned <prcore/pixelformat.hpp> , added premilinary support for floating-point and wide pixelformats
+  - rewrote prcore::CreateMipLevel(), added support for alphafilter (Alpha weight for filtered RGB values)
+  - added support for show flag in <prcore/window.hpp> when opening a window
+  - added FindBitmapCodec() function into <prcore/bitmap.hpp>
+  - added FindFileCodec() function into <prcore/filestream.hpp>
+  - added ::BindWindow(), ::UnbindWindow() and ::IsBind() methods to prcore::WindowBase class
+  - changed callback semantics on WindowBase ; events are generated from window callback only when
+    user has entered the ::MainLoop() of the window object ; this synchronizes the construction and callback generation
+
+
+------------------------------
+  November/23/2002 build 312
+------------------------------
+
+  - fixed bitmapcodec_jpg.cpp encoding with small jpeg images ( <= 4x4 pixels )
+  - fixed <prcore/endian.hpp> to correctly byteswap signed integers
+  - fixed <prmath/quaternion.hpp> to be includable individually
+  - changed prcore::RefCount ::SetName() and ::GetName() to use 'prcore::String' instead of 'const char*'
+  - changed prcore::FileIndex to use 'prcore::String' instead of 'const char*'
+  - removed "finish" -button from exception dialog, simply close the window with native UI
+
+
+------------------------------
+  November/14/2002 build 311
+------------------------------
+
+  - changed preconfigured visual c++ library names:
+    - prcore.lib,         primport.lib         ; single-threaded release
+    - prcore_mt.lib,      primport_mt.lib      ; multi-threaded release
+    - prcore_debug.lib,   primport_debug.lib   ; single-threaded debug
+    - prcore_mtdebug.lib, primport_mtdebug.lib ; multi-threaded debug
+
+  - cleaned up some jasperlib warnings on g++ 3.2
+  - updated Linux installation instructions
+
+
+------------------------------
+  November/13/2002 build 310
+------------------------------
+
+  - improved Linux implementation:
+    - compiles with g++ 3.2
+    - compatible with the latest prsdk headers
+    - fixed compiler warnings (jasperlib still complains, contact author?)
+    - only partial implementation, needs testing, but a good start ;-)
+
+
+------------------------------
+  November/12/2002 build 309
+------------------------------
+
+  - wrote more efficient string class
+  - fixed prcore headers, they now use NULL definition from <cstddef>
+  - fixed prcore headers to use <cassert> instead of <assert.h>
+  - added ::IsFile() and ::IsFolder() methods to prcore::FileIndex
+
+
+------------------------------
+  November/08/2002 build 308
+------------------------------
+
+  - enabled prmath Expression Template(s) after testing more throughoutly with MSVC++ 6
+
+
+-----------------------------
+  October/30/2002 build 307
+-----------------------------
+
+  - fixed cursor hiding bug in win32 implementation of WindowBase
+  - fixed bug in zip decrypting
+  - fixed prmath Expression Template bug
+  - improved prmath::Vector2,Vector3,Vector4 templates
+  - changed PRMATH_TYPENAME macro into PRMATH_NOTYPENAME, so the typename semantics are now reverse ;-)
+
+
+-----------------------------
+  October/27/2002 build 306
+-----------------------------
+
+  - upgraded Jasper JPEG2000 library to version 1.600
+  - rewrote JP2 codec to use latest Jasper library
+  - fixed prcore win32 config header so that std::min() and std::max() work with STLport
+
+
+-----------------------------
+  October/25/2002 build 305
+-----------------------------
+
+  - upgraded pnglib to version 1.2.5
+  - added multithreaded build settings to Visual Studio 6 and Visual Studio .NET workspace/solution
+  - fixed prcore::FrameBuffer::ResizeBuffer() to resize the window
+  - fixed prmath::Vector3<float> to work with Intel C++ 6.0.1
+  - added prmath::Vector4<float> specialization
+
+
+-----------------------------
+  October/18/2002 build 304
+-----------------------------
+
+  - added == and != operators for prmath::Vector3<float> to support expressions
+  - added PRCORE_LITTLECODE16,PRCORE_LITTLECODE32,PRCORE_BIGCODE16,PRCORE_BIGCODE32 macros
+  - added .ras (SUN Raster File) codec to prcore.lib
+  - added .iff (Amiga IFF85 Interchangeable File Format) codec to prcore.lib
+  
+
+-----------------------------
+  October/13/2002 build 303
+-----------------------------
+
+  - fixed prmath::Vector3<float> to work with microsoft visual c++ 6
+  - fixed prmath::Vector3<float> to compile with g++ 3.2
+  - disabled prmath::Vector3<float> specialization with DEBUG builds (no inlining)
+  - improved prmath::*Spline*<> templates to have separate vector type and scalar type
+
+
+-----------------------------
+  October/04/2002 build 302
+-----------------------------
+
+  - silenced compiler warning in <prcore/pixelformat.hpp>
+
+  - added (bool mainbreak = false) parameter to WindowBase::CloseWindow and FrameBuffer::CloseBuffer
+    this allows better control of application behaviour when closing/opening new implementation-specific windows
+
+  - fixed bug in FrameBuffer::LockBuffer() when restoring surface, ALT/TAB should now work in fullscreen mode
+
+  - revised FrameBuffer WIN32 implementation, had a possible bug when closing buffer (display driver specific)
+
+  - canceled the change in 301 about win32 library compilation target folders
+    we reversed the earlier change so that can provide customers with pre-compiled libraries
+    sorry for the inconvenience with build 301 (it was marked as beta, that saves a little?)
+
+  - added #define NOMINMAX before including <windows.h> in WIN32 implementation
+    client code which relies on min/max macros should use std::min<>(),std::max<>() in <algorithm>
+    - microsoft visual c++ 6 does NOT provide std::min<>() or std::max<>()
+    - workaround to this is to use <prcore/prcore.hpp> which does implement std::min<> and std::max<>(),
+      which is ugly hack - but allows us to pretend that <algorithm> works on all platforms we use PRSDK on
+    
+  - cleaned up prmath to use <limits> directly without #undef min, #undef max
+    client code which relies on automatic cleanup of min/max macros should cleanup before using prmath
+
+  - added prmath::Vector3<float> specialization with meta expression template support
+    the prmath::Vector3<float> long expressions are now SIGNIFICANTLY faster without specific SIMD optimizations
+    this is *experimental* code so use with caution!
+
+
+-------------------------------
+  September/22/2002 build 301
+-------------------------------
+
+  - added prcore::WindowBase::EventMouseMove() method
+  - added prcore::WindowBase::EventMouseButton() method
+  - fixed mouse focus behaviour of prcore::Mouse class
+  - vc6 and vc7 workspaces/solutions are now at bin/win32vc6/ and bin/win32vc7/
+  - win32 libraries are now compiled into bin/ instead of bin/win32vc6/ and bin/win32vc7/
+
+
+-------------------------------
+  September/21/2002 build 300
+-------------------------------
+
+  - THIS IS A MAJOR REWRITE BUILD FOR SOME PARTS OF THE SDK !
+
+  - fixed prcore::FileStream::Read() method return value in overflow case
+  - fixed prcore::FileStream::Seek() method return value in under-/overflow case
+  - renamed prcore::WindowBase methods, ::Resize() into ::ResizeWindow(), etc.
+  - made prcore::WindowGL class a little bit more user friendly, changes are trivial (see the header for details)
+  - made prcore::FrameBuffer class a little bit more user friendly
+    Summary of changes:
+      - FrameBuffer now inherited from WindowBase
+      - ::Open() renamed to ::OpenBuffer(), now also automatically calls ::OpenWindow()
+        now it should be obvious why method name change in prcore::WindowBase class!
+      - ::Resize() renamed to ::ResizeBuffer(), also resizes the WindowBase object
+      - etc. rest of the details in the header, generally easier-to-use interfaces are result
+ 
+  - rewrote prmath to be 100% template library (no binaries anymore)
+  - added new type prmath::Ray, co-exists with prmath::Line which is redefined as line segment
+  - rewrote intersect.hpp in prmath, documented usage of functions better in the headers
+  - #undef min, #undef max are now done in some prmath headers so that std::numeric_limits<>::max() works
+    this can cause inconvenience to windows programmers who rely on the min/max macros in <windows.h>
+    solution: use std::min() and std::max() in <algorithm>
+  - added support for double in prmath when PRMATH_TYPENAME is defined
+  - new code is 100% syntax compatible with the old one if PRMATH_TYPENAME typedefs were used (vec3f,..)
+    except for the changes listed above
+
+
+----------------------------
+  August/20/2002 build 297
+----------------------------
+
+  - added frame parameter to prcore::WindowBase::GetRect()
+  - fixed the prcore::WindowBase::GetRect() to return correct clientrect size
+  - fixed pixelformat conversion bug in src/prcore/blitter.cpp
+  - optimized and cleaned up src/prcore/blitter.cpp
+
+
+----------------------------
+  August/01/2002 build 296
+----------------------------
+
+  - added mouse support to WindowBase class
+
+
+--------------------------
+  July/12/2002 build 295
+--------------------------
+
+  - silenced compiler warnings on BeOS platform
+  - added extended pixelformat support to bmp codec
+  - added support for negative height in bmp codec
+  - improved win32 exception dialog rendering code
+
+
+--------------------------
+  June/13/2002 build 294
+--------------------------
+
+  - added biovision .bvh support to primport
+  - added barycentric ray-triangle intersection methods to prmath
+  - added randf() function to prcore
+
+
+--------------------------
+  June/06/2002 build 293
+--------------------------
+
+  - improved Linux makefile(s)
+  - fixed prmath::Quaternion::Slerp()
+  - removed obsolete #pragma warning's from implementation files
+  - other minor cleanup in prcore
+
+
+-------------------------
+  May/29/2002 build 292
+-------------------------
+
+  - added prcore::Array<>::PushBlock() method
+  - added JPEG2000 codec
+
+
+-------------------------
+  May/24/2002 build 291
+-------------------------
+
+  - silenced compiler (gcc 2.96) warnings on Linux implementation
+
+
+-------------------------
+  May/23/2002 build 290
+-------------------------
+
+  - upgraded pnglib to version 1.2.2
+  - improved png decoder
+  - filecodec_zip.cpp moved to portable code hierarchy
+  - cleaned up primport.lib headers
+  - fixed example/framebuffer/win32vc6/ workspace to link shell32.lib
+
+
+-------------------------
+  May/21/2002 build 289
+-------------------------
+
+  - fixed prmath::matrix4x4f::Inverse(const quat4f& )
+  - added prcore::Bitmap::LoadImage(Stream& stream, const char* filename)
+  - updated Linux implementation
+
+
+-------------------------
+  Apr/30/2002 build 288
+-------------------------
+
+  - fixed a memory leak in prcore::FrameBuffer WIN32 DX3 implementation
+  - renamed a few prcore::Keyboard enumerations (KEYCODE_PGDN -> KEYCODE_PAGEDOWN, etc.)
+
+
+-------------------------
+  Apr/26/2002 build 287
+-------------------------
+
+  - fixed prmath::matrix4x4f::MultRotateXYZ()
+
+
+-------------------------
+  Apr/16/2002 build 286
+-------------------------
+
+  - Borland Builder warnings silenced
+  - Visual Studio .NET warnings silenced on warning level 4
+  - moved Bitmap::SaveImage() to Surface::SaveImage()
+
+
+-------------------------
+  Apr/10/2002 build 285
+-------------------------
+
+  - cleaned up primport.lib, quake 1,2,3 model readers
+  - added bounding box support for the quake 3 model reader
+  - fixed prcore.lib src/ to compile with Borland Builder (still need feedback!)
+
+
+-------------------------
+  Apr/09/2002 build 284
+-------------------------
+
+  - fixed pcx codec to ignore extra pixels when image width is not even
+
+
+-------------------------
+  Mar/24/2002 build 283
+-------------------------
+
+  - upgraded zlib to version 1.1.4
+  - upgraded pnglib to version 1.2.1
+  - fixed memory leak in src/prcore/win32/filecodec_zip.cpp when decompressing zip with CRC32 error
+  - cleaned up example workspaces
+
+
+-------------------------
+  Mar/18/2002 build 282
+-------------------------
+
+  - added recursive filesystem (can now read zip inside zip, for example)
+  - changed codec initialization order, latest registered codec (for extension) has a priority
+
+
+-------------------------
+  Feb/27/2002 build 281
+-------------------------
+
+  - rewrote the prcore::ReadLittleEndianBuffer() and prcore::ReadBigEndianBuffer() in include/prcore/endian.hpp
+  - rewrote the src/prcore/win32/filecodec_zip.cpp to be endianess correct
+
+
+-------------------------
+  Feb/25/2002 build 280
+-------------------------
+
+  - fixed prmath::box3f member variable names (min/max conflicts with some *ahem*, macros somewhere ;-)
+  - added IsInside() and UpdateBox() methods to prmath::box3f
+  - fixed the primport for new member variable names for prmath::box3f
+  - fixed debug build workspaces for examples
+  - fixed "folder detection" -bug in FileStream
+  - fixed some ISO C++ compliance issues with g++
+
+
+-------------------------
+  Feb/23/2002 build 279
+-------------------------
+
+  - ported filesystem codec to new codec infrastructure
+  - created prcore::FileIndex class
+
+
+-------------------------
+  Feb/21/2002 build 278
+-------------------------
+
+  - rewrote codec infrastructure
+  - ported bitmap codecs to new codec infrastructure
+  - minor header cleanup
+
+
+-------------------------
+  Feb/14/2002 build 277
+-------------------------
+
+  - fixed write cache bug in prcore::FileStream
+
+
+-------------------------
+  Feb/13/2002 build 276
+-------------------------
+
+  - log created
+

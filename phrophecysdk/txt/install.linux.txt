@@ -1,0 +1,67 @@
+
+More info later, but basically here's a few rules. Prophecy requires GCC 3.0+, 
+2.95 will not suffice. I have found though that the stock compiler of RH 7.3
+works fine. Although do not attempt with earlier versions. NASM is also 
+required and may be found on your RedHat installation CD (or rpmfind.net)
+
+Makefiles are in /lib/linux
+
+Documentation is non-existant, but neverless this system is extremely well 
+designed that you should be able to pick it up in no time.
+
+There is some issues with window styles (ie. WINDOW_USES3D, WINDOW_FULLSCREEN)
+that remain to be resolved, if you need help just send an e-mail.
+
+Some things such as framebuffer support is not supported. Hopefully when 
+OpenGL 2.0 makes it's way out, we'll support it.
+
+Other things such as proper mouse, keyboard support and joystick completed 
+will not be coded by myself, so if you want to tackle them, please do so)
+
+--
+edmond.cote@twilight3d.com
+-linux port (part-time) maintainer
+
+
+
+Jukka's Tiny Linux HOW-TO v0.667
+Last Updated: 14th March 2003
+
+
+- installing the NASM -
+
+1. download NASM (netwide assembler) from www.sourceforge.net
+2. install NASM
+
+- downloading the sourcecode -
+
+3. download PRSDK (you done this already, obviously)
+4. unzip PRSDK: "unzip prophecyNNN.zip -d prsdk"
+   *) the unzip might not be part of Linux installation you are using, in which
+      case the usual steps should be followed to install it. ;-)
+
+- installing the newline -
+
+5. "cd prsdk/lib/unix/tools/newline"
+6. make
+7. install the newline tool (you need root privileges): "cp ./newline /usr/bin"
+
+- compiling and installing the sourcecode -
+
+8. "cd ../.."
+9. "make newline"
+10. "make"
+11. "make install"
+
+
+You're ready to go. Feel free to omit some steps, like installing NASM or "newline",
+if done previously, or install to different folder or whatnot. But that "simple" sequence
+of things to do should enable getting the SDK ready for action with minimal fuss. I'm not
+a Linux expert (or even novice) so suggestions for improvements are welcome.
+
+Contributions and help is also welcome, as we don't really use the Linux version ourselves much,
+so all the maintenance is done by me and Edmond Cote with very little actual testing/use. Keeping
+the Linux version mostly up-to-date for the rainy day, you never know.. ;-)
+
+--
+jukka.liimatta@twilight3d.com

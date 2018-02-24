@@ -1,0 +1,105 @@
+
+
+===========================
+  prophecy sdk
+  win32 configuration
+  author: jukka.liimatta@twilight3d.com
+===========================
+
+After decompressing the prophecy???.zip archive into the targer folder, for example prophecy/, it is time to configure the development environment. The default environment under the windows operating system we use is the Microsoft Developer Studio.NET (VC7).
+
+
+===========================
+  setting up the paths
+===========================
+
+  [ Visual Studio 6 ]
+  In the Developer Studio, go to the "Tools -> Options" menu, where select the "Directories"   tab. The following categories must be setup with the following values:
+
+    INCLUDE: prophecy/include/
+    LIBRARY: prophecy/lib/win32vc6/
+    EXECUTABLE: nasm/
+
+  [ Visual Studio.NET ]
+  In the Microsoft Development Environment, go to the "Tools -> Options -> Projects -> VC++    Directories" menu, where the following categories must be setup with the following values:
+
+    INCLUDE: prophecy/include/
+    LIBRARY: prophecy/lib/win32vc7/
+    EXECUTABLE: nasm/
+
+The "prophecy/" means the folder where user extracted the SDK archive. The "nasm/" is the folder where NASM ( NetwideAssembler ) utility is installed. This assembly compiler is required in order to compile the x86 native implementation files under windows.
+
+The NASM can be found from the web: http://nasm.sourceforge.net -- please kindly let us know if the website moves, and we will reflect the change in this document.
+
+
+===========================
+  compiling the libraries
+===========================
+
+After the developer studio paths are configured, it is time to build the libraries.
+Solutions are provided for the Visual Studio .net IDE in a solution file which is located at the
+lib/visual studio .net 2003/ folder.
+
+The libraries the user must compile:
+
+prcore.lib
+primport.lib
+
+A solution is provided which compiles all the libraries with one keystroke:
+lib/visual studio .net 2003/prophecy.sln
+
+
+===========================
+  console examples
+===========================
+
+First thing to setup a console compiling, is to add prophecy into the include and lib paths.
+Here is a simple bat file to setup the environment variables, notice that the prophecy path must
+be edited to match where the SDK was installed.
+
+[ prophecy.bat ]
+@echo off
+call vcvars32.bat
+set prophecy=e:\mysdk\prophecy\
+set include=%include%;%prophecy%\include
+set lib=%lib%;%prophecy%lib\visual studio .net 2003
+echo Prophecy SDK: configured.
+
+Under Windows NT and Windows 2000 the paths can be setup from the system menu as well.
+To compile the console examples, use the following commandline:
+
+nmake.exe -f makefile.vc
+
+The examples should build, and link if all paths were setup correctly. 
+
+Just in case the user is not familiar with commandline compiling, the above "prophecy.bat" is NOT
+mandatory to work with the Prophecy SDK when using Developer Studio-- it has it's own internal settings,
+which were declared earlier in this document.
+
+
+===========================
+  Visual Studio.NET note!
+===========================
+
+At the time this document was revised, we were moving development from Microsoft Visual Studio 6.0 SP5+PP for
+the new .NET programming framework, and some of the parts of the documentation are still referring to the
+older VC6 framework. Familiarity with the tools is prefered for users of the SDK.
+
+
+================================
+  Other Compilers note!
+================================
+
+The headers pass compiling with Borland C++Builder 5.5, no workspace or makefiles are provided for support with
+the aforementioned compiler - yet, any volunteers?
+
+The blitter.cpp implementation uses templates, Microsoft Visual C++ 6.0 (even with service pack, upto version 5,
+which is latest at the time this is being written) fails to correctly instantiate few pixelformat conversion
+templates. This produces incorrect output and/or random crashing when non-standard pixelformats are used.
+Upgrading the Visual Studio.NET (7.0) remedies this problem. If non-standard pixelformats are not used,
+the "problem" is not relevant. Just want to promove the awareness of this issue, as got a few bug-reports
+regarding this.
+
+
+
+<eof>
