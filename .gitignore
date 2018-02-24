@@ -1,0 +1,18 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!test_assigment/src
+!test_assigment/Shapes.cpp
+!test_assigment/Shapes.h
+!test_assigment/World.cpp
+!test_assigment/World.h
+!test_assigment/test_breakout_pr.ncb
+!test_assigment/test_breakout_pr.sln
+!test_assigment/test_breakout_pr.vcproj
+!test_assigment/test_breakout_pr.vcproj.SuperPowah.Aktion.user
+!phrophecysdk/include
+!phrophecysdk/lib
+!phrophecysdk/src
+!phrophecysdk/txt
