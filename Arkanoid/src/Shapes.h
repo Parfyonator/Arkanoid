@@ -11,7 +11,7 @@ struct MyImages {
 class Shape {
 protected:
 	float x,
-		  y;
+          y;
 	bool  active;
 public:
 	Shape();

@@ -1,22 +1,22 @@
 #define PRCORE_IMPLEMENT_MAIN
 #include <prmath\prmath.hpp>
 #pragma comment (lib, "ddraw.lib")
-#include "../World.h"
+#include "World.h"
 
 using namespace prcore;
 
 // world parameters
 float ball_radius = 5,
-	  ball_velocity = 200,
-	  platform_width = 60,
-	  platform_height = 5,
-	  border_thickness = 1,
-	  gap_height = 150,
-	  brick_width = 20,
-	  brick_height = 20;
+      ball_velocity = 200,
+      platform_width = 60,
+      platform_height = 5,
+      border_thickness = 1,
+      gap_height = 150,
+      brick_width = 20,
+      brick_height = 20;
 
 int   wall_width = 10,   // in bricks
-	  wall_height = 5;  // in bricks
+      wall_height = 5;  // in bricks
 
 struct MyColor {
 	uint32 r,g,b,a;
@@ -101,11 +101,8 @@ class TestWindow : public FrameBuffer
 	private:
 
 	Timer		timer;
-
 	Bitmap		buffer;
-
 	float       mouse_x;
-
 	World       world;
 	MyImages    images;
 };

@@ -4,11 +4,7 @@
 # But not these files...
 !.gitignore
 !README.md
-!Arkanoid/src/Arkanoid.cpp
-!Arkanoid/Shapes.cpp
-!Arkanoid/Shapes.h
-!Arkanoid/World.cpp
-!Arkanoid/World.h
+!Arkanoid/src/
 !Arkanoid/test_breakout_pr.ncb
 !Arkanoid/test_breakout_pr.sln
 !Arkanoid/test_breakout_pr.vcproj
