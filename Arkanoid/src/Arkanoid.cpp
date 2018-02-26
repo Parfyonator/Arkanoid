@@ -37,6 +37,7 @@ class TestWindow : public FrameBuffer
 
 	TestWindow()
 	{
+		prev_time = 0;
 		// create world
 		world  = World(wall_width, wall_height, border_thickness, gap_height, ball_radius, ball_velocity, platform_width, platform_height, brick_width, brick_height);
 
@@ -77,14 +78,15 @@ class TestWindow : public FrameBuffer
 		if( world.get_active_bricks_count() == 0 || !world.is_victorious() )
 			world = World(wall_width, wall_height, border_thickness, gap_height, ball_radius, ball_velocity, platform_width, platform_height, brick_width, brick_height);
 
-		float time = timer.GetTime();
+		float dt = timer.GetTime() - prev_time;
+		prev_time = timer.GetTime();
 		
 		// draw world
 		world.draw(&buffer, &images);
 		BlitWrite(0, 0, buffer);
 
 		// run world
-		world.run(timer.GetTime() / timer.GetTick(), mouse_x);
+		world.run(dt, mouse_x);
 		
 		PageFlip();
 	}
@@ -102,7 +104,8 @@ class TestWindow : public FrameBuffer
 
 	Timer		timer;
 	Bitmap		buffer;
-	float       mouse_x;
+	float       mouse_x,
+				prev_time;
 	World       world;
 	MyImages    images;
 };
