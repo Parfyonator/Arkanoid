@@ -1,6 +1,6 @@
 # Arkanoid
 
-![Alt Text](https://github.com/Parfyonator/Arkanoid/Game.gif)
+![alt text](https://github.com/Parfyonator/Arkanoid/blob/master/Game.gif)
 
 This project uses **Prophecy SDK** for visualisation, the latest version of which you can find on [Twilight3D](http://www.twilight3d.com/) webpage. To run this solition in your Visual Studio you should modify your project's *Property Pages* in the following way:
 
