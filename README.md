@@ -13,3 +13,8 @@ It still may rise an error due to lack of library `ddraw.lib`. If so, you can tr
 - go to *Configuration Properties > C/C++ > General* and add `C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include` to *Additional Include Directories*;
 - go to *Configuration Properties > Linker > General* and add `C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86` to *Additional Library Directories*;
 - go to *Configuration Properties > Linker > Input* and add `ddraw.lib` to *Additional Dependencies*.
+
+**Controls:**
+- Pause/Play - Space
+- Move platform - Cursor
+- Quit - Escape
