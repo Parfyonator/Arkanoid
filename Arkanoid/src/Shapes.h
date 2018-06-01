@@ -1,101 +1,101 @@
 #include <prcore/prcore.hpp>
 
 struct MyImages {
-	prcore::Bitmap					background,
-									ball,
-									platform;
+    prcore::Bitmap                    background,
+                                    ball,
+                                    platform;
 
-	prcore::Array<prcore::Bitmap>   bricks;
+    prcore::Array<prcore::Bitmap>   bricks;
 };
 
 class Shape {
 protected:
-	float x,
+    float x,
           y;
-	bool  active;
+    bool  active;
 public:
-	Shape();
+    Shape();
 
-	Shape(float x_, float y_, bool active_);
+    Shape(float x_, float y_, bool active_);
 
-	void change_activity();
+    void change_activity();
 
-	bool is_active();
+    bool is_active();
 
-	virtual void draw(prcore::Bitmap *buffer, MyImages *images) = 0;
+    virtual void draw(prcore::Bitmap *buffer, MyImages *images) = 0;
 
-	~Shape();
+    ~Shape();
 };
 
 class Brick: public Shape {
 public:
-	static float w,
+    static float w,
                  h;
 
-	Brick();
+    Brick();
 
-	Brick(float x_, float y_, bool active_);
+    Brick(float x_, float y_, bool active_);
 
-	float get_x();
+    float get_x();
 
-	float get_y();
+    float get_y();
 
-	virtual void draw(prcore::Bitmap *buffer, MyImages *images);
+    virtual void draw(prcore::Bitmap *buffer, MyImages *images);
 
-	~Brick();
+    ~Brick();
 };
 
 class Ball: public Shape {
 private:
-	float r,
-		  vx,
-		  vy;
+    float r,
+          vx,
+          vy;
 public:
-	Ball();
+    Ball();
 
-	Ball(float x_, float y_, float r_, float vx_, float vy_, bool active_);
+    Ball(float x_, float y_, float r_, float vx_, float vy_, bool active_);
 
-	float get_r();
+    float get_r();
 
-	float get_x();
+    float get_x();
 
-	float get_y();
+    float get_y();
 
-	float get_vx();
+    float get_vx();
 
-	float get_vy();
+    float get_vy();
 
-	void move(float dt);
+    void move(float dt);
 
-	void flip_vx();
+    void flip_vx();
 
-	void flip_vy();
+    void flip_vy();
 
-	virtual void draw(prcore::Bitmap *buffer, MyImages *images);
+    virtual void draw(prcore::Bitmap *buffer, MyImages *images);
 
-	~Ball();
+    ~Ball();
 };
 
 class Platform: public Shape {
 private:
-	float w,
-		  h;
+    float w,
+          h;
 public:
-	Platform();
+    Platform();
 
-	Platform(float x_, float y_, float w_, float h_, bool active_);
+    Platform(float x_, float y_, float w_, float h_, bool active_);
 
-	float get_x();
+    float get_x();
 
-	float get_y();
+    float get_y();
 
-	float get_w();
+    float get_w();
 
-	float get_h();
+    float get_h();
 
-	void move(float x_min, float x_max, float x_mouse);
+    void move(float x_min, float x_max, float x_mouse);
 
-	virtual void draw(prcore::Bitmap *buffer, MyImages *images);
+    virtual void draw(prcore::Bitmap *buffer, MyImages *images);
 
-	~Platform();
+    ~Platform();
 };
